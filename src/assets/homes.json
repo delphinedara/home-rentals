@@ -1,0 +1,62 @@
+[
+  {
+    "image_url": "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
+    "type": "Apartment",
+    "location": "Kansas City",
+    "title": "Superb duplex apartment in the historical centre"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
+    "type": "House",
+    "location": "Martin City",
+    "title": "Charming house with woodstove"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
+    "type": "Room",
+    "location": "Overland Park",
+    "title": "Nice Clean Room in OP Studio"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
+    "type": "Room",
+    "location": "Lee's Summit",
+    "title": "Bright and Sunny Shared Room in Downtown"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
+    "type": "House",
+    "location": "Grandview",
+    "title": "Cape Cod Style House on South Shore"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
+    "type": "Room",
+    "location": "Shawne Missions",
+    "title": "Large Private Room Facing Golf Course"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
+    "type": "House",
+    "location": "Grandview",
+    "title": "Single Family House in Grandview"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
+    "type": "Room",
+    "location": "Kansas City",
+    "title": "Small Clean Room near UMKC in Kansas City"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
+    "type": "House",
+    "location": "Overland Park",
+    "title": "House near Restaurants"
+  },
+  {
+    "image_url": "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
+    "type": "Apartment",
+    "location": "Kansas City",
+    "title": "Rustic Apartment in Downtown"
+  }
+]
