@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-homes',
@@ -9,15 +9,27 @@ import { Router } from '@angular/router';
 export class HomesComponent implements OnInit {
 
   homeTypeDropdownOpen = false;
-
-  homes$ = this.dataService.getHomes();
+  currentHomeTypeFilters = [];
+  currentSearch = '';
+  homes$ = this.dataService.homes$;
 
   constructor(
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+
+    this.route.queryParams.subscribe(params => {
+      const homeTypeFilters = params['home-type'] || [];
+      const searchString = params.search || '';
+      this.dataService.loadHomes(homeTypeFilters, searchString);
+      this.currentHomeTypeFilters = homeTypeFilters;
+      this.currentSearch = searchString;
+    });
+
+
   }
 
   homeTypeFilterApplied($event) {
@@ -27,5 +39,10 @@ export class HomesComponent implements OnInit {
 
   }
 
-}
+  searchApplied($event) {
 
+    this.router.navigate(['homes'], { queryParams: { search: $event } });
+
+  }
+
+}
