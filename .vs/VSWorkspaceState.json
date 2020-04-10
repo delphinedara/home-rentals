@@ -2,13 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\e2e",
-    "\\e2e\\src",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\homes",
-    "\\src\\assets",
-    "\\src\\environments"
+    "\\src\\app\\homes"
   ],
-  "SelectedNode": "\\src\\app\\homes\\homes.component.ts",
+  "SelectedNode": "\\src\\app\\homes",
   "PreviewInSolutionExplorer": false
 }
