@@ -2,7 +2,7 @@
   <form class="uk-search uk-search-default uk-width-medium"
         [formGroup]="form">
     <span uk-search-icon></span>
-    <input class="uk-search-input" type="search"
+    <input class="uk-search-input" data-testid="home-search-input" aria-label="Search homes" type="search"
            placeholder="Search..." [formControlName]="'search'">
   </form>
 </div>

@@ -1,16 +1,28 @@
-//Install express server
 const express = require('express');
 const path = require('path');
 
 const app = express();
+const port = process.env.PORT || 8080;
+const distPath = path.join(__dirname, 'dist', 'home-rentals');
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/<name-of-app>'));
+// Basic security headers for a static application.
+app.disable('x-powered-by');
 
-app.get('/*', function (req, res) {
-
-  res.sendFile(path.join(__dirname + '/dist/<name-of-app>/index.html'));
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('X-Frame-Options', 'DENY');
+  next();
 });
 
-// Start the app by listening on the default Heroku port
-app.listen(process.env.PORT || 8080);
+// Serve compiled Angular assets.
+app.use(express.static(distPath));
+
+// Support Angular client-side routes such as /homes.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
+app.listen(port, () => {
+  console.log(`Home Rentals running at http://localhost:${port}`);
+});
