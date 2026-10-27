@@ -34,9 +34,9 @@ export class DataService {
   loadHomes(
     homeTypeFilters: string[],
     searchString: string,
-    maxRent: number = 0,
-    minBedrooms: number = 0,
-    sort: string = ''
+    maxRent = 0,
+    minBedrooms = 0,
+    sort = ''
   ) {
     this.homes$.next({
       loading: true,

@@ -12,10 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node 12 for legacy Angular build
+      - name: Set up Node.js 24 for Angular 20
         uses: actions/setup-node@v4
         with:
-          node-version: '12'
+          node-version: '24'
 
       - name: Validate rental property data
         run: python3 scripts/validate_homes.py
@@ -27,7 +27,7 @@ jobs:
         run: npm run lint
 
       - name: Build Angular application
-        run: npm run build -- --prod
+        run: npm run build -- --configuration production
 
       - name: Run Angular unit tests with coverage
         run: |

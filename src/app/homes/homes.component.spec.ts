@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { BehaviorSubject, of } from 'rxjs';
 import { DataService, Home } from '../data.service';
 import { SavedHomesService } from '../saved-homes.service';
@@ -8,7 +8,7 @@ import { HomesComponent } from './homes.component';
 describe('HomesComponent', () => {
   let component: HomesComponent;
   let fixture: ComponentFixture<HomesComponent>;
-  let queryParams: BehaviorSubject<any>;
+  let queryParams: BehaviorSubject<Params>;
   let dataService: jasmine.SpyObj<DataService>;
   let savedService: jasmine.SpyObj<SavedHomesService>;
   let router: jasmine.SpyObj<Router>;
@@ -27,7 +27,7 @@ describe('HomesComponent', () => {
   ];
 
   beforeEach(() => {
-    queryParams = new BehaviorSubject<any>({});
+    queryParams = new BehaviorSubject<Params>({});
 
     dataService = jasmine.createSpyObj('DataService', [
       'loadHomes', 'getAllHomesForShortlist'

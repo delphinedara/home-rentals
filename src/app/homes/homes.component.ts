@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataService, Home } from '../data.service';
 import { SavedHomesService } from '../saved-homes.service';
 
@@ -63,7 +63,7 @@ export class HomesComponent implements OnInit {
     );
   }
 
-  private validNumber(value: any, maximum: number): number {
+  private validNumber(value: unknown, maximum: number): number {
     if (value === undefined || value === null || value === '') {
       return 0;
     }
@@ -99,7 +99,7 @@ export class HomesComponent implements OnInit {
     this.updateQuery({ sort: value || null });
   }
 
-  private updateQuery(queryParams: any) {
+  private updateQuery(queryParams: Params) {
     this.router.navigate(['/homes'], {
       queryParams,
       queryParamsHandling: 'merge'
