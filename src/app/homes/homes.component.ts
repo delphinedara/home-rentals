@@ -4,6 +4,7 @@ import { DataService, Home } from '../data.service';
 import { SavedHomesService } from '../saved-homes.service';
 
 @Component({
+  standalone: false,
   selector: 'app-homes',
   templateUrl: './homes.component.html',
   styleUrls: ['./homes.component.css']
@@ -54,13 +55,6 @@ export class HomesComponent implements OnInit {
         this.minBedrooms,
         this.sort
       );
-    });
-
-    this.dataService.homes$.subscribe(state => {
-      if (!state.loading && !state.error) {
-        // Keep the complete catalog for the shortlist totals.
-        // Loaded separately below to avoid depending on active filters.
-      }
     });
 
     this.dataService.getAllHomesForShortlist().subscribe(

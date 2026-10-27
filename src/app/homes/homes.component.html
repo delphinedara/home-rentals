@@ -167,7 +167,7 @@
                   type="button"
                   class="uk-button uk-button-primary uk-button-small"
                   [attr.data-testid]="'save-property-' + home.id"
-                  [attr.aria-label]="(isSaved(home.id) ? 'Remove ' : 'Save ') + home.title"
+                  [attr.aria-label]="(isSaved(home.id) ? 'Remove saved' : 'Save property') + ': ' + home.title"
                   (click)="toggleSaved(home.id)">
                   {{ isSaved(home.id) ? 'Remove saved' : 'Save property' }}
                 </button>

@@ -7,10 +7,11 @@ import {
   EventEmitter,
   Input
 } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 @Component({
+  standalone: false,
   selector: 'app-home-search',
   templateUrl: './home-search.component.html'
 })
@@ -18,9 +19,9 @@ export class HomeSearchComponent implements OnInit, OnChanges {
   @Input() defaultSearch = '';
   @Output() applied = new EventEmitter<string>();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({

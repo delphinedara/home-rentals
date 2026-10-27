@@ -44,3 +44,22 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Playwright QA dependencies and generated reports
+/qa/node_modules/
+/qa/playwright-report/
+/qa/test-results/
+
+# Local backup files
+/package-lock.backup.json
+
+# Visual Studio generated files
+/.vs/
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Angular CLI generated cache
+/.angular/

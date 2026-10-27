@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 
 @Component({
+  standalone: false,
   selector: 'app-home-type-filter',
   templateUrl: './home-type-filter.component.html'
 })
@@ -10,9 +11,9 @@ export class HomeTypeFilterComponent implements OnInit {
   @Input() defaultFilters = [];
   @Output() applied = new EventEmitter();
 
-  form: FormGroup;
+  form: UntypedFormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit() {
 

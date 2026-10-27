@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout repository
@@ -17,11 +17,31 @@ jobs:
         with:
           node-version: '12'
 
+      - name: Validate rental property data
+        run: python3 scripts/validate_homes.py
+
       - name: Install Angular dependencies
         run: npm ci
 
+      - name: Run TypeScript lint checks
+        run: npm run lint
+
       - name: Build Angular application
         run: npm run build -- --prod
+
+      - name: Run Angular unit tests with coverage
+        run: |
+          CHROME_BIN="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)"
+          if [ -z "$CHROME_BIN" ]; then
+            echo "ERROR: No Chrome or Chromium executable found"
+            exit 1
+          fi
+          echo "Using browser: $CHROME_BIN"
+          export CHROME_BIN
+          npm test -- \
+            --watch=false \
+            --browsers=ChromeHeadless \
+            --code-coverage
 
       - name: Set up Node 24 for Playwright
         uses: actions/setup-node@v4
@@ -53,7 +73,7 @@ jobs:
 
       - name: Run Playwright tests
         working-directory: qa
-        run: npx playwright test --workers=1
+        run: npm test -- --workers=1
 
       - name: Upload Playwright report
         if: always()

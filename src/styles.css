@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Accessibility: WCAG AA color contrast */
+
+/* Improve readability of secondary text. */
+.rentals-page .uk-text-muted {
+  color: #595959 !important;
+}
+
+/* Maintain sufficient contrast for primary action buttons. */
+.uk-button-primary {
+  background-color: #0056a6;
+  color: #ffffff;
+}
+
+.uk-button-primary:hover,
+.uk-button-primary:focus {
+  background-color: #004785;
+  color: #ffffff;
+}
