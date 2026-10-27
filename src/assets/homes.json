@@ -3,60 +3,90 @@
     "image_url": "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
     "type": "Apartment",
     "location": "Kansas City",
-    "title": "Superb duplex apartment in the historical centre"
+    "title": "Superb duplex apartment in the historical centre",
+    "id": 1,
+    "monthlyRent": 1650,
+    "bedrooms": 2
   },
   {
     "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
     "type": "House",
     "location": "Martin City",
-    "title": "Charming house with woodstove"
+    "title": "Charming house with woodstove",
+    "id": 2,
+    "monthlyRent": 2400,
+    "bedrooms": 3
   },
   {
     "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
     "type": "Room",
     "location": "Overland Park",
-    "title": "Nice Clean Room in OP Studio"
+    "title": "Nice Clean Room in OP Studio",
+    "id": 3,
+    "monthlyRent": 850,
+    "bedrooms": 1
   },
   {
     "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
     "type": "Room",
     "location": "Lee's Summit",
-    "title": "Bright and Sunny Shared Room in Downtown"
+    "title": "Bright and Sunny Shared Room in Downtown",
+    "id": 4,
+    "monthlyRent": 700,
+    "bedrooms": 1
   },
   {
     "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
     "type": "House",
     "location": "Grandview",
-    "title": "Cape Cod Style House on South Shore"
+    "title": "Cape Cod Style House on South Shore",
+    "id": 5,
+    "monthlyRent": 2100,
+    "bedrooms": 3
   },
   {
     "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
     "type": "Room",
     "location": "Shawne Missions",
-    "title": "Large Private Room Facing Golf Course"
+    "title": "Large Private Room Facing Golf Course",
+    "id": 6,
+    "monthlyRent": 950,
+    "bedrooms": 1
   },
   {
     "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
     "type": "House",
     "location": "Grandview",
-    "title": "Single Family House in Grandview"
+    "title": "Single Family House in Grandview",
+    "id": 7,
+    "monthlyRent": 2250,
+    "bedrooms": 4
   },
   {
     "image_url": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=500&q=80",
     "type": "Room",
     "location": "Kansas City",
-    "title": "Small Clean Room near UMKC in Kansas City"
+    "title": "Small Clean Room near UMKC in Kansas City",
+    "id": 8,
+    "monthlyRent": 800,
+    "bedrooms": 1
   },
   {
     "image_url": "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=500&q=80",
     "type": "House",
     "location": "Overland Park",
-    "title": "House near Restaurants"
+    "title": "House near Restaurants",
+    "id": 9,
+    "monthlyRent": 1950,
+    "bedrooms": 3
   },
   {
     "image_url": "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=500&q=80",
     "type": "Apartment",
     "location": "Kansas City",
-    "title": "Rustic Apartment in Downtown"
+    "title": "Rustic Apartment in Downtown",
+    "id": 10,
+    "monthlyRent": 1450,
+    "bedrooms": 2
   }
 ]

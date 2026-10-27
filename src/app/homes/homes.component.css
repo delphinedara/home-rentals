@@ -1,0 +1,115 @@
+.rentals-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rental-filters {
+  align-items: flex-end;
+}
+
+.rental-filters label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.rental-filters .uk-select {
+  min-width: 155px;
+}
+
+.rental-grid {
+  margin-top: 20px;
+}
+
+.rental-card {
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.rental-card img {
+  display: block;
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+}
+
+.rental-card .uk-card-body {
+  padding: 20px;
+}
+
+.rental-card h3 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.saved-summary {
+  border-radius: 8px;
+}
+
+@media (max-width: 639px) {
+  .rentals-page {
+    padding: 16px;
+  }
+
+  .rentals-page h1 {
+    font-size: 1.7rem;
+  }
+
+  .rental-filters {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+    gap: 12px;
+  }
+
+  .rental-filters > div {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  .rental-filters .uk-select,
+  .rental-filters .uk-button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .rental-filters .uk-dropdown {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .rental-card img {
+    height: 190px;
+  }
+
+  .rental-card .uk-card-body {
+    padding: 16px;
+  }
+
+  .rental-card .uk-button {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .saved-summary {
+    padding: 16px;
+  }
+
+  .saved-summary .uk-button {
+    margin: 8px 0 0;
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Slightly rounded Save Property buttons */
+.rental-card .uk-button {
+  border-radius: 6px;
+}

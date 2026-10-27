@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomesComponent
   },
   {
-    //Redirect path to the homes route
+    // Redirect path to the homes route
     path: '',
     redirectTo: 'homes',
     pathMatch: 'full'
@@ -17,7 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

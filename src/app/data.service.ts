@@ -1,43 +1,96 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { delay, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+export interface Home {
+  id: number;
+  title: string;
+  type: string;
+  location: string;
+  image_url: string;
+  monthlyRent: number;
+  bedrooms: number;
+}
+
+export interface HomesState {
+  loading: boolean;
+  data: Home[];
+  error: boolean;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
-  homes$ = new BehaviorSubject({ loading: true, data: [] });
+  homes$ = new BehaviorSubject<HomesState>({
+    loading: true,
+    data: [],
+    error: false
+  });
 
   constructor(private httpClient: HttpClient) { }
 
-  loadHomes(homeTypeFilters, searchString) {
+  loadHomes(
+    homeTypeFilters: string[],
+    searchString: string,
+    maxRent = 0,
+    minBedrooms = 0,
+    sort = ''
+  ) {
+    this.homes$.next({
+      loading: true,
+      data: [],
+      error: false
+    });
 
-    // Indicate that homes are loading when loadHomes is called.
-    this.homes$.next({ loading: true, data: [] });
+    const allowedTypes = ['Apartment', 'Room', 'House'];
+    const types = homeTypeFilters.filter(type => allowedTypes.includes(type));
+    const search = (searchString || '').trim().toLowerCase().slice(0, 100);
 
-    this.httpClient.get<any[]>('assets/homes.json')
+    this.httpClient.get<Home[]>('assets/homes.json')
       .pipe(
-        delay(2000),
-        // Filter homes on client side.
         map(homes => {
-          if (!homeTypeFilters.length) {
-            return homes;
+          const filtered = homes.filter(home => {
+            const matchesType =
+              !types.length || types.includes(home.type);
+
+            const text = (home.title + ' ' + home.location).toLowerCase();
+            const matchesSearch = !search || text.includes(search);
+
+            const matchesRent = !maxRent || home.monthlyRent <= maxRent;
+            const matchesBedrooms =
+              !minBedrooms || home.bedrooms >= minBedrooms;
+
+            return matchesType && matchesSearch &&
+              matchesRent && matchesBedrooms;
+          });
+
+          if (sort === 'price-asc') {
+            filtered.sort((a, b) => a.monthlyRent - b.monthlyRent);
+          } else if (sort === 'price-desc') {
+            filtered.sort((a, b) => b.monthlyRent - a.monthlyRent);
           }
-          return homes.filter(home => homeTypeFilters.includes(home.type));
-        }),
-        // Search homes on client side.
-        map(homes => {
-          if (!searchString) {
-            return homes;
-          }
-          return homes.filter(home => home.title.toLowerCase().includes(searchString.toLowerCase()));
+
+          return filtered;
         })
       )
-      .subscribe(homes => {
-        this.homes$.next({ loading: false, data: homes });
-      });
-
+      .subscribe(
+        homes => this.homes$.next({
+          loading: false,
+          data: homes,
+          error: false
+        }),
+        () => this.homes$.next({
+          loading: false,
+          data: [],
+          error: true
+        })
+      );
   }
+
+  getAllHomesForShortlist() {
+    return this.httpClient.get<Home[]>('assets/homes.json');
+  }
+
 }
